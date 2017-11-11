@@ -17,6 +17,14 @@ namespace Roman2Dec
                 Console.WriteLine("Usage: <roman> [ <roman> ]");
                 return;
             }
+
+            foreach (string arg in args)
+            {
+                if (Convert.ToDecimal(arg) == 0)
+                {
+                    Console.WriteLine(BadInputFormat, arg);
+                }
+            }
         }
     }
 }
