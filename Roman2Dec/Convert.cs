@@ -16,9 +16,9 @@ namespace Roman2Dec
         {
             return 0;
         }
-        public static int CharacterToDecimal(string roman)
+        public static int CharacterToDecimal(char roman)
         {
-            switch (roman.ToUpperInvariant()[0])
+            switch (Char.ToUpperInvariant(roman))
             {
                 case 'M': return 1000;
                 case 'D': return 500;
