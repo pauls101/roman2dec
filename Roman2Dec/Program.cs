@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Roman2Dec
 {
-    class Program
+    public class Program
     {
         public static string BadInputFormat = "Bad Data: {0}";
 
