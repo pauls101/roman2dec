@@ -16,5 +16,9 @@ namespace Roman2Dec
         {
             return 0;
         }
+        public static int CharacterToDecimal(string roman)
+        {
+            return 0;
+        }
     }
 }
