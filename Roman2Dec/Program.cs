@@ -11,6 +11,12 @@ namespace Roman2Dec
         // Call with one or more whitespace separated Roman numeral strings.
         public static void Main(string[] args)
         {
+            if (args.Length == 0)
+            {
+                Console.WriteLine("Convert Roman to Decimal values");
+                Console.WriteLine("Usage: <roman> [ <roman> ]");
+                return;
+            }
         }
     }
 }
