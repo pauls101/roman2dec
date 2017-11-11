@@ -13,7 +13,17 @@ namespace Roman2DecTest
         {
             string[] args = new string[0];
             string result = RunWithArgs(args);
-            Assert.StartsWith("Convert", result);
+        }
+
+        [Fact]
+        public void TestBadInput()
+        {
+            string badInput = "QQQ";
+            string[] args = new string[] {badInput};
+            string result = RunWithArgs(args);
+
+            string error = string.Format(Program.BadInputFormat, badInput) + Environment.NewLine;
+            Assert.Equal(error, result);
         }
 
         public string RunWithArgs(string[] args)
