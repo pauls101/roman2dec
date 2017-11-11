@@ -6,7 +6,10 @@ namespace Roman2Dec
 {
     class Program
     {
-        static void Main(string[] args)
+        public static string BadInputFormat = "Bad Data: {0}";
+
+        // Call with one or more whitespace separated Roman numeral strings.
+        public static void Main(string[] args)
         {
         }
     }
