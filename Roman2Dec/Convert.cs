@@ -14,8 +14,18 @@ namespace Roman2Dec
     {
         public static int ToDecimal(string roman)
         {
-            return 0;
+            int total = 0;
+            foreach (char ch in roman)
+            {
+                int value = Convert.CharacterToDecimal(ch);
+                if(value > 0)
+                {
+                    total += value;
+                }
+            }
+            return total;
         }
+
         public static int CharacterToDecimal(char roman)
         {
             switch (Char.ToUpperInvariant(roman))

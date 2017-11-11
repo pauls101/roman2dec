@@ -7,7 +7,8 @@ namespace Roman2DecTest
 {
     public class ConvertTest
     {
-        [InlineData("MCM", 1900)]
+        [InlineData("MDCLXVI", 1666)]
+        [InlineData("mDcLxVi", 1666)]
         [Theory]
         public void TestConvertString(string roman, int equalTo)
         {
