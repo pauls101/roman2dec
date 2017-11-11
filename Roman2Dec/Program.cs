@@ -17,11 +17,6 @@ namespace Roman2Dec
                 Console.WriteLine("Usage: <roman> [ <roman> ]");
                 return;
             }
-
-            if(Convert.ToDecimal(args[0]) == 0)
-            {
-                Console.WriteLine(BadInputFormat, args[0]);
-            }
         }
     }
 }

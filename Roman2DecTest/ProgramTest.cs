@@ -19,10 +19,23 @@ namespace Roman2DecTest
         public void TestBadInput()
         {
             string badInput = "QQQ";
-            string[] args = new string[] {badInput};
+            string[] args = new string[] { badInput };
             string result = RunWithArgs(args);
 
             string error = string.Format(Program.BadInputFormat, badInput) + Environment.NewLine;
+            Assert.Equal(error, result);
+        }
+
+        [Fact]
+        public void TestMultipleBadInput()
+        {
+            string badInput1 = "Q";
+            string badInput2 = "R";
+            string[] args = new string[] { badInput1, badInput2 };
+            string result = RunWithArgs(args);
+
+            string error = string.Format(Program.BadInputFormat, badInput1) + Environment.NewLine + 
+                string.Format(Program.BadInputFormat, badInput2) + Environment.NewLine;
             Assert.Equal(error, result);
         }
 
