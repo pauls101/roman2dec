@@ -16,12 +16,22 @@ namespace Roman2DecTest
             Assert.Equal(value, equalTo);
         }
 
-        [InlineData("ILC",    0)] // bad
-        [InlineData("VLC",    0)] // bad
-        [InlineData("XLC",    0)] // bad
-        [InlineData("XCD",    0)] // bad
+        [InlineData("ILC", 0)] // bad
+        [InlineData("VLC", 0)] // bad
+        [InlineData("XLC", 0)] // bad
+        [InlineData("XCD", 0)] // bad
         [Theory]
         public void TestConvertComplexString(string roman, int equalTo)
+        {
+            int value = Roman2Dec.Convert.ToDecimal(roman);
+            Assert.Equal(value, equalTo);
+        }
+
+        [InlineData("IIIIX", 0)] // bad
+        [InlineData("IIIIXII", 0)] // bad
+        [InlineData("XXXIXXX", 0)] // bad
+        [Theory]
+        public void TestConvertComplexString2(string roman, int equalTo)
         {
             int value = Roman2Dec.Convert.ToDecimal(roman);
             Assert.Equal(value, equalTo);
