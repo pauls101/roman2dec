@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Roman2Dec
 {
@@ -10,6 +8,7 @@ namespace Roman2Dec
     // Non-adjacent "less" pairs allowed (IC = 99)
     // "Less" is strictly limited to 2 characters: IIX = 8, IXL = 49 NOT allowed.
     // 0 return value -> error (no exceptions or specific error messages.)
+    //TODO: provide better diag output for bad input (exceptions?)
     public static class Convert
     {
         public static int ToDecimal(string roman)
@@ -17,7 +16,10 @@ namespace Roman2Dec
             int total = 0;
             int previous = Int32.MaxValue;
             int prevprev = Int32.MaxValue;
+
+            // Previous character was not used as second of a "less" pair
             bool lessEnabled = true;
+
             foreach (char ch in roman)
             {
                 int value = Convert.CharacterToDecimal(ch);
@@ -58,12 +60,12 @@ namespace Roman2Dec
             switch (Char.ToUpperInvariant(roman))
             {
                 case 'M': return 1000;
-                case 'D': return 500;
-                case 'C': return 100;
-                case 'L': return 50;
-                case 'X': return 10;
-                case 'V': return 5;
-                case 'I': return 1;
+                case 'D': return  500;
+                case 'C': return  100;
+                case 'L': return   50;
+                case 'X': return   10;
+                case 'V': return    5;
+                case 'I': return    1;
             }
 
             return 0;

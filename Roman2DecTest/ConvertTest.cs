@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Roman2Dec;
 using Xunit;
 
