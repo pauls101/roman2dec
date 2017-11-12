@@ -20,9 +20,14 @@ namespace Roman2Dec
 
             foreach (string arg in args)
             {
-                if (Convert.ToDecimal(arg) == 0)
+                int result = Convert.ToDecimal(arg);
+                if (result == 0)
                 {
                     Console.WriteLine(BadInputFormat, arg);
+                }
+                else
+                {
+                    Console.WriteLine(result.ToString());
                 }
             }
         }

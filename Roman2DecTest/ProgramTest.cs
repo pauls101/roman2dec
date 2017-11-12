@@ -39,15 +39,18 @@ namespace Roman2DecTest
             Assert.Equal(error, result);
         }
 
-        [InlineData("LXiv")]
-        [InlineData("mcmxcix")]
+        [InlineData("LXiv",      64)]
+        [InlineData("mcmxcix", 1999)]
+        [InlineData("mdM",     1500)]
+        [InlineData("VvIiIiIi",  16)]
+        [InlineData("VViviii",   17)]
         [Theory]
-        public void TestGoodInput(string value)
+        public void TestGoodInput(string value, int dec)
         {
             string[] args = new string[] { value };
             string result = RunWithArgs(args);
 
-            Assert.Equal(value + Environment.NewLine, result);
+            Assert.Equal(dec.ToString() + Environment.NewLine, result);
         }
 
         public string RunWithArgs(string[] args)
