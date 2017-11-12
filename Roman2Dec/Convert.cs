@@ -15,12 +15,33 @@ namespace Roman2Dec
         public static int ToDecimal(string roman)
         {
             int total = 0;
+            int previous = Int32.MaxValue; 
+            int prevprev = Int32.MaxValue; 
+            bool lessEnabled = true;
             foreach (char ch in roman)
             {
                 int value = Convert.CharacterToDecimal(ch);
                 if(value > 0)
                 {
                     total += value;
+                    if (value > previous) //else
+                    {
+                        if (!lessEnabled) return 0;
+                        lessEnabled = false;
+
+                        total -= 2 * previous;
+                        if (total <= 0) return 0; 
+                    }
+                    else
+                    {
+                        lessEnabled = true;
+                    }
+
+                    previous = value;
+                }
+                else
+                {
+                    return 0;
                 }
             }
             return total;

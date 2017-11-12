@@ -16,11 +16,10 @@ namespace Roman2DecTest
             Assert.Equal(value, equalTo);
         }
 
-        [InlineData("ILC", 0)] // bad
-        [InlineData("VLC", 0)] // bad
-        [InlineData("XLC", 0)] // bad
-        [InlineData("XCD", 0)] // bad
-        [InlineData("DMD", 0)] // bad
+        [InlineData("ILC",    0)] // bad
+        [InlineData("VLC",    0)] // bad
+        [InlineData("XLC",    0)] // bad
+        [InlineData("XCD",    0)] // bad
         [Theory]
         public void TestConvertComplexString(string roman, int equalTo)
         {
