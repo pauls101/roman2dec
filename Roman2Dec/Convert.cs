@@ -15,7 +15,8 @@ namespace Roman2Dec
         public static int ToDecimal(string roman)
         {
             int total = 0;
-            int previous = Int32.MaxValue; 
+            int previous = Int32.MaxValue;
+            int prevprev = Int32.MaxValue;
             bool lessEnabled = true;
             foreach (char ch in roman)
             {
@@ -36,13 +37,17 @@ namespace Roman2Dec
                     total -= 2 * previous;
 
                     // Sanity
-                    if (total <= 0) return 0; 
+                    if (total <= 0) return 0;
+
                 }
                 else
                 {
                     lessEnabled = true;
                 }
 
+                // IIIX, XIXX cases
+                if (value > prevprev) return 0;
+                prevprev = previous;
                 previous = value;
             }
             return total;
