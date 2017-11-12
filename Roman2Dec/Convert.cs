@@ -16,33 +16,34 @@ namespace Roman2Dec
         {
             int total = 0;
             int previous = Int32.MaxValue; 
-            int prevprev = Int32.MaxValue; 
             bool lessEnabled = true;
             foreach (char ch in roman)
             {
                 int value = Convert.CharacterToDecimal(ch);
-                if(value > 0)
+                if(value <= 0)
                 {
-                    total += value;
-                    if (value > previous) //else
-                    {
-                        if (!lessEnabled) return 0;
-                        lessEnabled = false;
+                    return 0; // bad character
+                }
 
-                        total -= 2 * previous;
-                        if (total <= 0) return 0; 
-                    }
-                    else
-                    {
-                        lessEnabled = true;
-                    }
+                total += value;
+                if (value > previous)
+                {
+                    // IXL case (IX pair < L)
+                    if (!lessEnabled) return 0;
+                    lessEnabled = false;
 
-                    previous = value;
+                    // IX -> I + X but should be -I + X
+                    total -= 2 * previous;
+
+                    // Sanity
+                    if (total <= 0) return 0; 
                 }
                 else
                 {
-                    return 0;
+                    lessEnabled = true;
                 }
+
+                previous = value;
             }
             return total;
         }
